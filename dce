@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+GLOBAL_CONFIG_PATH=$HOME/.config/dce
+CONFIG_FILE_NAME=.dcerc
+CURDIR=`pwd`
+
+OPTS=''
+if [ -f $CURDIR/$CONFIG_FILE_NAME ]; then
+    OPTS=`cat $CURDIR/$CONFIG_FILE_NAME | grep -v '^#'`
+fi
+
+CURRENT_ENV=prod
+if [ -f $GLOBAL_CONFIG_PATH/env ]; then
+    CURRENT_ENV=`cat $GLOBAL_CONFIG_PATH/env`
+fi
+
+ENV=''
+for env_file in .env .env.$CURRENT_ENV; do
+    echo $env_file
+    if [ -f $CURDIR/$env_file ]; then
+        ENV="$ENV --env-file $env_file"
+    fi
+done
+
+docker compose $ENV $OPTS $*

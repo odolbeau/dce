@@ -43,3 +43,7 @@ Ship this file in your repository to ensure your collaborators use exactly the s
 ### Dealing with environment files
 
 By default, `dce` will include `.env` and `.env.prod` files if present in the current folder. You can change the default environment used by `dce` by creating a `~/.config/dce/env` file. For example, if this file contains "local", `dce` will automatically includes `env` and `.env.local` files if it exists.
+
+## Improvements
+
+Use `--project-directory` option when provided to look for a .dcerc file in the given folder

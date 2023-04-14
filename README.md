@@ -12,6 +12,12 @@ Simply copy the `dce` command of this repository in a folder which is present in
 sudo sh -c 'curl -s https://raw.githubusercontent.com/odolbeau/dce/master/dce > /usr/local/bin/dce && chmod +x /usr/local/bin/dce'
 ```
 
+In order to install bash_completion:
+
+```bash
+sudo sh -c 'curl -s https://raw.githubusercontent.com/odolbeau/dce/master/bash_completion > /etc/bash_completion.d/dce'
+```
+
 ## Usage
 
 ### Automatically add options using a `.dcerc` file.

@@ -9,7 +9,7 @@ The command will read the `.dcerc` configuration file if present in order to aut
 Simply copy the `dce` command of this repository in a folder which is present in your $PATH.
 
 ```bash
-sudo sh -c 'curl -s https://raw.githubusercontent.com/odolbeau/dce/master/dce > /usr/local/bin/dce'
+sudo sh -c 'curl -s https://raw.githubusercontent.com/odolbeau/dce/master/dce > /usr/local/bin/dce && chmod +x /usr/local/bin/dce'
 ```
 
 ## Usage

@@ -18,7 +18,6 @@ fi
 
 ENV=''
 for env_file in .env .env.$CURRENT_ENV; do
-    echo $env_file
     if [ -f $CURDIR/$env_file ]; then
         ENV="$ENV --env-file $env_file"
     fi

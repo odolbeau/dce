@@ -4,11 +4,10 @@ set -e
 
 GLOBAL_CONFIG_PATH=$HOME/.config/dce
 CONFIG_FILE_NAME=.dcerc
-CURDIR=$(pwd)
 
 OPTS=''
-if [ -f "$CURDIR/$CONFIG_FILE_NAME" ]; then
-    OPTS=$(grep -v '^#' "$CURDIR/$CONFIG_FILE_NAME")
+if [ -f "$PWD/$CONFIG_FILE_NAME" ]; then
+    OPTS=$(grep -v '^#' "$PWD/$CONFIG_FILE_NAME")
 fi
 
 CURRENT_ENV=prod
@@ -18,7 +17,7 @@ fi
 
 ENV=''
 for env_file in .env .env.$CURRENT_ENV; do
-    if [ -f "$CURDIR/$env_file" ]; then
+    if [ -f "$PWD/$env_file" ]; then
         ENV="$ENV --env-file $env_file"
     fi
 done

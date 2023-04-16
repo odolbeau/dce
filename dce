@@ -4,23 +4,23 @@ set -e
 
 GLOBAL_CONFIG_PATH=$HOME/.config/dce
 CONFIG_FILE_NAME=.dcerc
-CURDIR=`pwd`
+CURDIR=$(pwd)
 
 OPTS=''
-if [ -f $CURDIR/$CONFIG_FILE_NAME ]; then
-    OPTS=`cat $CURDIR/$CONFIG_FILE_NAME | grep -v '^#'`
+if [ -f "$CURDIR/$CONFIG_FILE_NAME" ]; then
+    OPTS=$(grep -v '^#' "$CURDIR/$CONFIG_FILE_NAME")
 fi
 
 CURRENT_ENV=prod
-if [ -f $GLOBAL_CONFIG_PATH/env ]; then
-    CURRENT_ENV=`cat $GLOBAL_CONFIG_PATH/env`
+if [ -f "$GLOBAL_CONFIG_PATH/env" ]; then
+    CURRENT_ENV=$(cat "$GLOBAL_CONFIG_PATH/env")
 fi
 
 ENV=''
 for env_file in .env .env.$CURRENT_ENV; do
-    if [ -f $CURDIR/$env_file ]; then
+    if [ -f "$CURDIR/$env_file" ]; then
         ENV="$ENV --env-file $env_file"
     fi
 done
 
-docker compose $ENV $OPTS $*
+docker compose "$ENV $OPTS $*"

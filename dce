@@ -22,4 +22,4 @@ for env_file in .env .env.$CURRENT_ENV; do
     fi
 done
 
-docker compose "$ENV $OPTS $*"
+docker compose "$ENV" "$OPTS" "$@"

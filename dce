@@ -9,6 +9,7 @@ OPTS=''
 if [ -f "$PWD/$CONFIG_FILE_NAME" ]; then
     OPTS=$(grep -v '^#' "$PWD/$CONFIG_FILE_NAME")
 fi
+OPTS=${OPTS//$'\n'/ }
 
 CURRENT_ENV=prod
 if [ -f "$GLOBAL_CONFIG_PATH/env" ]; then

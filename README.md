@@ -9,13 +9,13 @@ The command will read the `.dcerc` configuration file if present in order to aut
 Simply copy the `dce` command of this repository in a folder which is present in your $PATH.
 
 ```bash
-curl -s https://raw.githubusercontent.com/odolbeau/dce/master/dce | sudo tee -a /usr/local/bin/dce && sudo chmod +x /usr/local/bin/dce
+curl -s https://raw.githubusercontent.com/odolbeau/dce/master/dce | sudo tee /usr/local/bin/dce && sudo chmod +x /usr/local/bin/dce
 ```
 
 In order to install bash_completion:
 
 ```bash
-curl -s https://raw.githubusercontent.com/odolbeau/dce/master/bash_completion | sudo tee -a /etc/bash_completion.d/dce
+curl -s https://raw.githubusercontent.com/odolbeau/dce/master/bash_completion | sudo tee /etc/bash_completion.d/dce
 ```
 
 ## Usage
